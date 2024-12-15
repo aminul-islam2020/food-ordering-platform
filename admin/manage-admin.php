@@ -35,10 +35,11 @@
             $res = mysqli_query($conn,$sql);
 
             // chk whthr the query is executed or not
-            if($res=TRUE)
+            if($res==TRUE)
             {
                 // count rows
-                $rows=mysqli_rows($res);
+                $count =mysqli_num_rows($res);
+                $sn=1;
                 //chk the no of row
                 if($count>0)
                 {
@@ -50,7 +51,17 @@
                             $username=$rows['username'];
                         //Display the values in the table
                         ?>
-                        
+                            <tr>
+                                <td><?php echo $sn++; ?></td>
+                                <td><?php echo $full_name; ?></td>
+                                <td><?php echo $username; ?></td>
+                                <td>
+                                    <a href="#" class="btn-secondary">Update Admin</a>
+                                    <a href="#" class="btn-danger">Delete Admin</a>
+                                    
+                                </td>
+                            </tr>
+                        <?php
                     }
                 }
                 else{
@@ -59,34 +70,8 @@
             }
         ?>
 
-        <tr>
-            <td>1.</td>
-            <td>Aminul Islam</td>
-            <td>aminulislam</td>
-            <td>
-                <a href="#" class="btn-secondary">Update Admin</a>
-                <a href="#" class="btn-danger">Delete Admin</a>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>2.</td>
-            <td>Easin Arafat</td>
-            <td>midul20</td>
-            <td>
-            <a href="#" class="btn-secondary">Update Admin</a>
-            <a href="#" class="btn-danger">Delete Admin</a>
-            </td>
-        </tr>
-        <tr>
-            <td>3.</td>
-            <td>Arafath Islam</td>
-            <td>arafath55</td>
-            <td>
-            <a href="#" class="btn-secondary">Update Admin</a>
-            <a href="#" class="btn-danger">Delete Admin</a>
-            </td>
-        </tr>
+    
+        
        </table>
         
         </div>
